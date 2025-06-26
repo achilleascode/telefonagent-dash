@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: telefonagent-webhook
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: FRONTEND_URL
+        value: https://aesthetic-tiramisu-fca7d8.netlify.app
+    healthCheckPath: /health
